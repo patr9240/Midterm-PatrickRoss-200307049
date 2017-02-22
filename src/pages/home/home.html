@@ -3,12 +3,13 @@
     Patrick Ross
     200307049
     -->
+    <!-- Header-->
 <ion-header center text-center>
   <ion-navbar>
     <ion-title>Create Shopping List</ion-title>
   </ion-navbar>
 </ion-header>
-
+<!-- Page Content-->
 <ion-content center text-center>
   <ion-list>
     <ion-item>
@@ -17,6 +18,7 @@
     <ion-item>
       <ion-input type="text" value="My Shopping List"></ion-input>
     </ion-item>
+    <!-- list labels-->
     <ion-item>
       <ion-row>
         <ion-col width-50 center text-center>
@@ -27,6 +29,7 @@
         </ion-col>
       </ion-row>
     </ion-item>
+    <!-- Beginning of sliding list-->
      <ion-item-sliding *ngFor="let shoppingListItem of shoppingListItems | async;">
       <ion-item>
         <ion-row>
@@ -44,12 +47,14 @@
           </ion-col>
         </ion-row>
       </ion-item>
+      <!-- Sliding List Options-->
       <ion-item-options>
         <button ion-button large color="danger" (click)="removeItem(shoppingListItem.$key)">
           <ion-icon name="md-close"></ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>
+    <!-- Cancel and add item buttons-->
     <ion-row>
       <ion-col width-50 center text-center>
         <button ion-button color="danger">
