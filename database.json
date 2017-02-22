@@ -1,34 +1,28 @@
 {
     "shoppingList": [
         {
-            "weeklyList": [
-                {
-                    "item": "Dozen Eggs.",
-                    "itemCount": 1
-                },
-                {
-                    "item": "Plantain.",
-                    "itemCount": 3
-                },
-                {
-                    "item": "Sweet Potato.",
-                    "itemCount": 6
-                }
-            ],
-            "biWeeklyList": [
-                {
-                    "item": "Tequila.",
-                    "itemCount": 1
-                },
-                {
-                    "item": "Milk.",
-                    "itemCount": 1
-                },
-                {
-                    "item": "Coffee.",
-                    "itemCount": 1
-                }
-            ]
+            "item": "Dozen Eggs.",
+            "itemCount": 1
+        },
+        {
+            "item": "Plantain.",
+            "itemCount": 3
+        },
+        {
+            "item": "Sweet Potato.",
+            "itemCount": 6
+        },
+        {
+            "item": "Tequila.",
+            "itemCount": 1
+        },
+        {
+            "item": "Milk.",
+            "itemCount": 1
+        },
+        {
+            "item": "Coffee.",
+            "itemCount": 1
         }
     ]
 }

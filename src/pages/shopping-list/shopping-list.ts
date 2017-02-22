@@ -19,10 +19,10 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 })
 export class ShoppingListPage {
   
-  listItems: FirebaseListObservable<any>;
+  shoppingList: FirebaseListObservable<any>;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, 
   af: AngularFire, public actionSheetCtrl: ActionSheetController) {
-    this.listItems = af.database.list('/shoppingList');
+    this.shoppingList = af.database.list('/shoppingList');
   }
 }
