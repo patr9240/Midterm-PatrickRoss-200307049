@@ -4,14 +4,46 @@
     200307049
     -->
 <ion-header center text-center>
-  <ion-navbar>
-    <ion-title>Shopping List</ion-title>
-  </ion-navbar>
 </ion-header>
+
 <ion-content center text-center>
-  <ion-list>
-    <ion-item-sliding>
+  <ion-item>
+    <ion-label fixed>Username</ion-label>
+    <ion-input type="text" value=""></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Password</ion-label>
+    <ion-input type="password"></ion-input>
+  </ion-item>
+  <ion-list inset *ngFor="let listItem of listItems | async; let i = index;">
+    <ion-item-sliding (click)="switchComplete(listItem.$key, listItem.done)">
       
+      <!-- If item is completed show normally -->
+      <ion-item text-wrap *ngIf="listItem.done === true">
+        <ion-label>
+          <s> {{i+1}}. {{listItem.item}} </s>
+        </ion-label>
+        <ion-checkbox color="positive" checked="true" disabled="true"></ion-checkbox>
+      </ion-item>
+
+      <!-- If item is completed, check box and cross line through text -->
+      <ion-item text-wrap *ngIf="listItem.done === false">
+        <ion-label>
+          {{i+1}}. {{listItem.item}}
+        </ion-label>
+        <ion-checkbox color="positive" checked="false" (click)="switchComplete(listItem.$key, listItem.done)"></ion-checkbox>
+      </ion-item>
+      
+      <!-- Options for item slide -->
+      <ion-item-options>
+        <button ion-button large color="primary" (click)="updateItem(listItem.$key, listItem.item)">
+          <ion-icon name="md-settings"></ion-icon>
+        </button>
+        <button ion-button large color="danger" (click)="removeItem(listItem.$key)">
+          <ion-icon name="md-close"></ion-icon>
+        </button>
+      </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 </ion-content>

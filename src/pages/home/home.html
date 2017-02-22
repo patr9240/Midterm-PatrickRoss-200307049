@@ -3,6 +3,7 @@
     Patrick Ross
     200307049
     -->
+    <!--
 <ion-header center text-center>
   <ion-navbar>
     <ion-title>Shopping Lists</ion-title>
@@ -11,4 +12,97 @@
 
 <ion-content center text-center>
   <h1>Weekly list</h1>
+</ion-content>
+-->
+<ion-header center text-center>
+</ion-header>
+
+<ion-content center text-center>
+  <ion-list>
+    <ion-item>
+      <ion-label><h4>New Shopping List Name</h4></ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" value="My Shopping List"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col width-50 center text-center>
+          List Items
+        </ion-col>
+        <ion-col width-50 center text-center>
+            Quantity
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+     <ion-item-sliding>
+      <ion-item>
+        <ion-row>
+          <ion-col width-50 center text-center>
+            eggs
+          </ion-col>
+          <ion-col width-50 center text-center>
+            <button ion-button color="primary">
+              <ion-icon name="ios-arrow-back"></ion-icon>
+            </button>
+              12
+            <button ion-button color="primary">
+              <ion-icon name="ios-arrow-forward"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item-options>
+        <button ion-button large color="danger">
+          <ion-icon name="md-close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-row>
+      <ion-col width-50 center text-center>
+        <button ion-button color="danger">
+          Cancel
+        </button>
+      </ion-col>
+      <ion-col width-50 center text-center>
+        <button ion-button color="secondary">
+          Save
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+    
+  <!--
+  <ion-list inset *ngFor="let listItem of listItems | async; let i = index;">
+    <ion-item-sliding (click)="switchComplete(listItem.$key, listItem.done)">
+      
+      
+      <ion-item text-wrap *ngIf="listItem.done === true">
+        <ion-label>
+          <s> {{i+1}}. {{listItem.item}} </s>
+        </ion-label>
+        <ion-checkbox color="positive" checked="true" disabled="true"></ion-checkbox>
+      </ion-item>
+
+      
+      <ion-item text-wrap *ngIf="listItem.done === false">
+        <ion-label>
+          {{i+1}}. {{listItem.item}}
+        </ion-label>
+        <ion-checkbox color="positive" checked="false" (click)="switchComplete(listItem.$key, listItem.done)"></ion-checkbox>
+      </ion-item>
+      
+      
+      <ion-item-options>
+        <button ion-button large color="primary" (click)="updateItem(listItem.$key, listItem.item)">
+          <ion-icon name="md-settings"></ion-icon>
+        </button>
+        <button ion-button large color="danger" (click)="removeItem(listItem.$key)">
+          <ion-icon name="md-close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  -->
 </ion-content>
