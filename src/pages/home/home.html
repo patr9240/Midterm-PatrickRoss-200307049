@@ -3,17 +3,6 @@
     Patrick Ross
     200307049
     -->
-    <!--
-<ion-header center text-center>
-  <ion-navbar>
-    <ion-title>Shopping Lists</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content center text-center>
-  <h1>Weekly list</h1>
-</ion-content>
--->
 <ion-header center text-center>
   <ion-navbar>
     <ion-title>Create Shopping List</ion-title>
@@ -34,30 +23,29 @@
           <h4>List Items</h4>
         </ion-col>
         <ion-col width-50 center text-center>
-            <h4>Quantity</h4>
+            <h4>Quantity</h4> 
         </ion-col>
       </ion-row>
     </ion-item>
-
-     <ion-item-sliding *ngFor="let shoppingListItem of shoppingListItems | async; let i = index;">
+     <ion-item-sliding *ngFor="let shoppingListItem of shoppingListItems | async;">
       <ion-item>
         <ion-row>
           <ion-col width-50 center text-center>
-            {{i + 1}}. {{shoppingListItem.item}}
+            {{shoppingListItem.item}}
           </ion-col>
           <ion-col width-50 center text-center>
-            <button ion-button color="primary" (click)="minusItem(shoppingListItem.$key, shoppingListItem.itemCount)">
+            <button ion-button color="primary" (click)="minusItemCount(shoppingListItem.$key, shoppingListItem.itemCount)">
               <ion-icon name="ios-arrow-back"></ion-icon>
             </button>
               {{shoppingListItem.itemCount}}
-            <button ion-button color="primary" (click)="addItem(shoppingListItem.$key, shoppingListItem.itemCount)">
+            <button ion-button color="primary" (click)="addItemCount(shoppingListItem.$key, shoppingListItem.itemCount)">
               <ion-icon name="ios-arrow-forward"></ion-icon>
             </button>
           </ion-col>
         </ion-row>
       </ion-item>
       <ion-item-options>
-        <button ion-button large color="danger">
+        <button ion-button large color="danger" (click)="removeItem(shoppingListItem.$key)">
           <ion-icon name="md-close"></ion-icon>
         </button>
       </ion-item-options>
@@ -69,43 +57,10 @@
         </button>
       </ion-col>
       <ion-col width-50 center text-center>
-        <button ion-button color="secondary">
-          Save
+        <button ion-button color="secondary" (click)="addItem()">
+          Add
         </button>
       </ion-col>
     </ion-row>
   </ion-list>
-    
-  <!--
-  <ion-list inset *ngFor="let listItem of listItems | async; let i = index;">
-    <ion-item-sliding (click)="switchComplete(listItem.$key, listItem.done)">
-      
-      
-      <ion-item text-wrap *ngIf="listItem.done === true">
-        <ion-label>
-          <s> {{i+1}}. {{listItem.item}} </s>
-        </ion-label>
-        <ion-checkbox color="positive" checked="true" disabled="true"></ion-checkbox>
-      </ion-item>
-
-      
-      <ion-item text-wrap *ngIf="listItem.done === false">
-        <ion-label>
-          {{i+1}}. {{listItem.item}}
-        </ion-label>
-        <ion-checkbox color="positive" checked="false" (click)="switchComplete(listItem.$key, listItem.done)"></ion-checkbox>
-      </ion-item>
-      
-      
-      <ion-item-options>
-        <button ion-button large color="primary" (click)="updateItem(listItem.$key, listItem.item)">
-          <ion-icon name="md-settings"></ion-icon>
-        </button>
-        <button ion-button large color="danger" (click)="removeItem(listItem.$key)">
-          <ion-icon name="md-close"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-  -->
 </ion-content>
